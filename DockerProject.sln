@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockerProject.API", "DockerProject.API\DockerProject.API.csproj", "{AB941527-B142-488E-8C33-E7DE3AD2227D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB941527-B142-488E-8C33-E7DE3AD2227D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB941527-B142-488E-8C33-E7DE3AD2227D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB941527-B142-488E-8C33-E7DE3AD2227D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB941527-B142-488E-8C33-E7DE3AD2227D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
