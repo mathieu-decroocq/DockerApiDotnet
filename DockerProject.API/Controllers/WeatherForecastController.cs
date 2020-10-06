@@ -11,19 +11,13 @@ namespace DockerProject.API.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly Context _context;
 
-        // The Web API will only accept tokens 1) for users, and 2) having the "access_as_user" scope for this API
-        static readonly string[] scopeRequiredByApi = new string[] {"access_as_user"};
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, Context context)
         {
             _logger = logger;
+            _context = context;
         }
 
         [HttpGet]
@@ -34,7 +28,7 @@ namespace DockerProject.API.Controllers
                 {
                     Date = DateTime.Now.AddDays(index),
                     TemperatureC = rng.Next(-20, 55),
-                    Summary = Summaries[rng.Next(Summaries.Length)]
+                    Summary = this._context.Summaries.FirstOrDefault(s => s.Id == index)?.Name
                 })
                 .ToArray();
         }
