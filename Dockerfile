@@ -3,11 +3,15 @@ WORKDIR /source
 
 # Copy csproj and restore as distinct layers
 COPY **/DockerProject.API.csproj ./DockerProject.API/DockerProject.API.csproj
-#RUN dotnet restore
+RUN dotnet restore
 #COPY *.csproj .
 
 # Copy everything else and build
 COPY . .
+
+RUN sleep.sh
+RUN dotnet ef database update 
+
 #RUN dotnet build -c Release
 RUN dotnet publish -c release -o /app 
 
