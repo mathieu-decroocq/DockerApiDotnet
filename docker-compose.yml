@@ -14,4 +14,7 @@ services:
       - "mssql"
     ports:
       - "8022:80"
+    environment:
+      DATABASE_HOST: "mssql:1433"
+      DATABASE_PASSWORD: "SuperSA2020"
 

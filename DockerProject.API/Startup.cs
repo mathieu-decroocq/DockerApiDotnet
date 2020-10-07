@@ -20,14 +20,19 @@ namespace DockerProject.API
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+           // Environment = env;
         }
-
+       // public IWebHostEnvironment Environment { get; }
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<Context>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            var host = Environment.GetEnvironmentVariable("DATABASE_HOST");
+            var pass = Environment.GetEnvironmentVariable("DATABASE_PASSWORD");
+            string cs = $"Data Source={host};Database=Weather_Dev;user id=sa;password={pass};";
+
+            services.AddDbContext<Context>(options => options.UseSqlServer(cs));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
