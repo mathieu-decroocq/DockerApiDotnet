@@ -10,6 +10,7 @@ services:
   api:
     image: "dockerproject_api"
     build: .
+    restart: always
     depends_on:
       - "mssql"
     ports:
